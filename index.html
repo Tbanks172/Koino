@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KoinoCards &mdash; Deep Conversations for Real Relationships</title>
+<meta name="description" content="500+ conversation cards for couples, families, singles and everyone doing the deep work of knowing and being known.">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#13121A;
+  color:#F2EFE9;
+  font-family:'Outfit',Georgia,'Times New Roman',sans-serif;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── TOKENS ── */
+/* Primary: #8B5CF6 purple */
+/* Accent: #C9920A gold */
+/* Bg: #13121A */
+/* Surface: #1E1C2A */
+/* Text: #F2EFE9 */
+/* Muted: #888 */
+
+/* ── NAV ── */
+.nav{
+position:fixed;top:0;left:0;right:0;z-index:100;
+padding:18px 32px;
+display:flex;align-items:center;justify-content:space-between;
+background:rgba(19,18,26,0.88);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav-logo{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:22px;font-weight:900;
+color:#F2EFE9;letter-spacing:-0.5px;
+display:flex;align-items:center;gap:6px;
+}
+.nav-logo-star{color:#8B5CF6;font-size:14px;animation:spin 10s linear infinite;display:inline-block;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.nav-cta{
+background:linear-gradient(135deg,#8B5CF6,#6D28D9);
+color:#fff;font-size:13px;font-weight:700;
+padding:9px 20px;border-radius:24px;
+text-decoration:none;letter-spacing:0.3px;
+box-shadow:0 4px 16px rgba(139,92,246,0.4);
+transition:transform 0.15s,box-shadow 0.15s;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(139,92,246,0.5);}
+
+/* ── HERO ── */
+.hero{
+min-height:100vh;
+display:flex;flex-direction:column;
+align-items:center;justify-content:center;
+text-align:center;
+padding:120px 24px 80px;
+position:relative;
+overflow:hidden;
+}
+.hero-glow{
+position:absolute;top:50%;left:50%;
+transform:translate(-50%,-50%);
+width:700px;height:700px;
+background:radial-gradient(circle,rgba(139,92,246,0.18) 0%,rgba(109,40,217,0.08) 40%,transparent 70%);
+pointer-events:none;
+}
+.hero-tag{
+font-family:‘DM Mono’,monospace;
+font-size:11px;letter-spacing:3px;
+color:#8B5CF6;text-transform:uppercase;
+margin-bottom:24px;
+display:flex;align-items:center;gap:8px;
+}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:#8B5CF6;box-shadow:0 0 8px #8B5CF6;}
+.hero-h1{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(42px,7vw,82px);
+font-weight:900;line-height:1.1;
+letter-spacing:-2px;
+color:#F2EFE9;
+max-width:820px;
+margin-bottom:24px;
+}
+.hero-h1 em{
+font-style:italic;color:#8B5CF6;
+}
+.hero-sub{
+font-size:clamp(16px,2vw,20px);
+color:#aaa;line-height:1.7;
+max-width:540px;margin-bottom:48px;
+font-weight:400;
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:56px;}
+.btn-primary{
+background:linear-gradient(135deg,#8B5CF6,#6D28D9);
+color:#fff;font-size:16px;font-weight:700;
+padding:16px 36px;border-radius:50px;
+text-decoration:none;
+box-shadow:0 8px 32px rgba(139,92,246,0.5);
+transition:transform 0.15s,box-shadow 0.15s;
+display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(139,92,246,0.6);}
+.btn-secondary{
+background:transparent;
+border:1px solid rgba(255,255,255,0.15);
+color:#F2EFE9;font-size:15px;font-weight:500;
+padding:16px 32px;border-radius:50px;
+text-decoration:none;
+transition:border-color 0.15s,background 0.15s;
+}
+.btn-secondary:hover{border-color:rgba(139,92,246,0.5);background:rgba(139,92,246,0.06);}
+.hero-trust{
+font-size:13px;color:#555;
+display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;
+}
+.hero-trust span{display:flex;align-items:center;gap:6px;}
+
+/* MOCKUP */
+.mockup-section{
+padding:0 24px 100px;
+display:flex;justify-content:center;
+}
+.mockup-wrap{
+position:relative;
+max-width:700px;width:100%;
+}
+.mockup-img{
+width:100%;border-radius:24px;
+box-shadow:0 40px 100px rgba(0,0,0,0.7),0 0 0 1px rgba(255,255,255,0.06);
+}
+.mockup-glow{
+position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);
+width:80%;height:200px;
+background:radial-gradient(ellipse,rgba(139,92,246,0.25) 0%,transparent 70%);
+filter:blur(30px);pointer-events:none;
+}
+
+/* ── VOID ── */
+.void{
+padding:100px 24px;
+max-width:680px;margin:0 auto;
+text-align:center;
+}
+.section-label{
+font-family:‘DM Mono’,monospace;
+font-size:10px;letter-spacing:3px;
+color:#8B5CF6;text-transform:uppercase;
+margin-bottom:20px;
+}
+.void-h2{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(32px,5vw,52px);
+font-weight:900;line-height:1.2;
+letter-spacing:-1px;
+margin-bottom:32px;color:#F2EFE9;
+}
+.void-body{
+font-size:17px;color:#aaa;line-height:1.85;
+margin-bottom:24px;
+}
+.void-body strong{color:#F2EFE9;}
+.void-pullquote{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:22px;font-style:italic;
+color:#F2EFE9;
+border-left:3px solid #8B5CF6;
+padding:20px 24px;
+background:rgba(139,92,246,0.06);
+border-radius:0 12px 12px 0;
+text-align:left;
+margin:40px 0;
+line-height:1.5;
+}
+.void-close{
+font-size:17px;color:#F2EFE9;font-weight:600;
+margin-top:24px;
+}
+
+/* ── DARK BREAK ── */
+.dark-break{
+background:#0A0818;
+border-top:1px solid rgba(139,92,246,0.2);
+border-bottom:1px solid rgba(139,92,246,0.2);
+padding:80px 24px;
+text-align:center;
+position:relative;overflow:hidden;
+}
+.dark-break-glow{
+position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+width:600px;height:300px;
+background:radial-gradient(ellipse,rgba(139,92,246,0.15) 0%,transparent 70%);
+pointer-events:none;
+}
+.dark-break-inner{max-width:660px;margin:0 auto;position:relative;}
+.dark-break p{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(22px,3.5vw,34px);
+font-weight:700;line-height:1.4;
+color:#F2EFE9;margin-bottom:20px;
+}
+.dark-break p em{color:#8B5CF6;font-style:italic;}
+.dark-break-close{
+font-size:18px;font-weight:700;
+color:#C9920A;
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-style:italic;
+}
+
+/* ── PERCH / SOLUTION ── */
+.perch{
+padding:100px 24px;
+max-width:720px;margin:0 auto;
+text-align:center;
+}
+.perch-h2{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(30px,5vw,52px);
+font-weight:900;line-height:1.2;
+letter-spacing:-1px;
+color:#F2EFE9;margin-bottom:32px;
+}
+.perch-body{
+font-size:17px;color:#aaa;line-height:1.85;
+margin-bottom:24px;
+}
+.perch-body strong{color:#F2EFE9;}
+.perch-pullquote{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:24px;font-style:italic;
+color:#F2EFE9;margin:48px auto;
+max-width:560px;line-height:1.5;
+position:relative;
+}
+.perch-pullquote::before{
+content:’\201C’;
+font-size:80px;color:#8B5CF6;opacity:0.3;
+position:absolute;top:-20px;left:-20px;
+font-family:‘Playfair Display’,Georgia,serif;
+line-height:1;
+}
+
+/* APP SCREENSHOTS */
+.screenshots{
+padding:60px 24px 100px;
+background:#0D0C14;
+}
+.screenshots-inner{max-width:1100px;margin:0 auto;}
+.screenshots-hdr{text-align:center;margin-bottom:52px;}
+.screenshots-hdr h2{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(28px,4vw,44px);font-weight:900;
+letter-spacing:-1px;color:#F2EFE9;margin-bottom:12px;
+}
+.screenshots-hdr p{font-size:16px;color:#888;}
+.screenshots-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+.screen-card{
+background:#1E1C2A;
+border:1px solid rgba(255,255,255,0.07);
+border-radius:20px;overflow:hidden;
+transition:transform 0.2s,border-color 0.2s;
+}
+.screen-card:hover{transform:translateY(-4px);border-color:rgba(139,92,246,0.3);}
+.screen-card-img{
+width:100%;aspect-ratio:9/16;
+background:linear-gradient(160deg,#8B5CF6 0%,#4C1D95 40%,#13121A 100%);
+display:flex;flex-direction:column;
+align-items:center;justify-content:center;
+padding:24px 20px;gap:10px;
+position:relative;overflow:hidden;
+}
+/* Simulated app UI cards */
+.sim-header{
+position:absolute;top:0;left:0;right:0;
+background:rgba(19,18,26,0.9);
+padding:14px 16px 10px;
+display:flex;align-items:center;justify-content:space-between;
+}
+.sim-logo{
+font-family:‘Playfair Display’,serif;font-size:16px;font-weight:900;color:#F2EFE9;
+}
+.sim-badge{
+background:linear-gradient(135deg,#7C3AED,#5B21B6);
+font-size:9px;font-weight:700;color:#fff;
+padding:3px 8px;border-radius:10px;
+}
+.sim-hook{
+position:absolute;top:56px;left:12px;right:12px;
+background:rgba(139,92,246,0.15);
+border:1px solid rgba(139,92,246,0.3);
+border-radius:10px;padding:8px 12px;
+font-size:10px;color:#C4B5FD;font-style:italic;line-height:1.4;
+}
+.sim-editions{
+position:absolute;bottom:0;left:0;right:0;
+padding:12px;display:flex;flex-direction:column;gap:6px;
+top:130px;overflow:hidden;
+}
+.sim-ed{
+background:rgba(30,28,42,0.95);
+border:1px solid rgba(255,255,255,0.07);
+border-radius:10px;padding:8px 10px;
+display:flex;align-items:center;gap:8px;
+}
+.sim-ed-emoji{font-size:16px;}
+.sim-ed-text{}
+.sim-ed-name{font-size:10px;font-weight:700;color:#F2EFE9;}
+.sim-ed-desc{font-size:8px;color:#888;margin-top:1px;}
+
+/* Question card sim */
+.sim-qcard{
+position:absolute;inset:16px;
+border-radius:16px;
+display:flex;flex-direction:column;
+padding:20px 16px 16px;
+overflow:hidden;
+}
+.sim-qcard-label{
+font-family:‘DM Mono’,monospace;font-size:7px;
+letter-spacing:2px;color:rgba(255,255,255,0.4);
+margin-bottom:10px;
+}
+.sim-qcard-emoji{font-size:22px;margin-bottom:10px;}
+.sim-qcard-q{
+font-family:‘Playfair Display’,serif;
+font-size:14px;font-weight:700;line-height:1.4;
+color:#F2EFE9;flex:1;
+}
+.sim-qcard-hint{font-size:9px;color:rgba(255,255,255,0.45);font-style:italic;margin-top:12px;}
+
+.screen-card-label{
+padding:16px 18px;
+border-top:1px solid rgba(255,255,255,0.06);
+}
+.screen-card-label h4{
+font-family:‘Playfair Display’,serif;
+font-size:15px;font-weight:700;color:#F2EFE9;margin-bottom:3px;
+}
+.screen-card-label p{font-size:12px;color:#888;}
+
+/* ── SOAR ── */
+.soar{
+padding:100px 24px;
+max-width:1000px;margin:0 auto;
+}
+.soar-hdr{text-align:center;margin-bottom:60px;}
+.soar-hdr h2{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(30px,5vw,50px);font-weight:900;
+letter-spacing:-1px;color:#F2EFE9;margin-bottom:12px;
+}
+.soar-hdr p{font-size:16px;color:#888;max-width:480px;margin:0 auto;}
+.soar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.soar-card{
+background:#1E1C2A;
+border:1px solid rgba(255,255,255,0.07);
+border-radius:20px;padding:32px 28px;
+position:relative;overflow:hidden;
+transition:transform 0.2s,border-color 0.2s;
+}
+.soar-card:hover{transform:translateY(-4px);border-color:rgba(139,92,246,0.3);}
+.soar-card::before{
+content:’’;position:absolute;top:0;left:0;right:0;height:3px;
+background:linear-gradient(90deg,#8B5CF6,#C9920A);
+}
+.soar-num{
+font-family:‘DM Mono’,monospace;font-size:48px;font-weight:500;
+color:rgba(139,92,246,0.15);line-height:1;margin-bottom:16px;
+}
+.soar-card h3{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:22px;font-weight:700;color:#F2EFE9;
+margin-bottom:12px;letter-spacing:-0.3px;
+}
+.soar-card p{font-size:15px;color:#aaa;line-height:1.7;}
+
+/* ── WHAT’S INSIDE ── */
+.inside{
+padding:100px 24px;
+background:#0D0C14;
+}
+.inside-inner{max-width:1100px;margin:0 auto;}
+.inside-hdr{text-align:center;margin-bottom:60px;}
+.inside-hdr h2{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(28px,4vw,48px);font-weight:900;
+letter-spacing:-1px;color:#F2EFE9;margin-bottom:12px;
+}
+.inside-hdr p{font-size:16px;color:#888;max-width:500px;margin:0 auto;}
+.inside-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+gap:16px;
+}
+.inside-card{
+background:#1A1828;
+border:1px solid rgba(255,255,255,0.07);
+border-radius:16px;padding:22px 22px;
+display:flex;gap:16px;align-items:flex-start;
+transition:border-color 0.2s,transform 0.2s;
+}
+.inside-card:hover{border-color:rgba(139,92,246,0.25);transform:translateY(-2px);}
+.inside-emoji{
+width:48px;height:48px;border-radius:14px;
+display:flex;align-items:center;justify-content:center;
+font-size:24px;flex-shrink:0;
+}
+.inside-text h4{
+font-family:‘Playfair Display’,serif;font-size:17px;font-weight:700;
+color:#F2EFE9;margin-bottom:5px;
+}
+.inside-text p{font-size:13px;color:#888;line-height:1.6;}
+.inside-count{
+text-align:center;margin-top:48px;
+font-family:‘DM Mono’,monospace;font-size:12px;
+color:#555;letter-spacing:2px;
+}
+.inside-count strong{color:#8B5CF6;font-size:20px;}
+
+/* ── TESTIMONIALS ── */
+.testi{padding:100px 24px;}
+.testi-inner{max-width:1000px;margin:0 auto;}
+.testi-hdr{text-align:center;margin-bottom:56px;}
+.testi-hdr h2{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(28px,4vw,44px);font-weight:900;
+letter-spacing:-1px;color:#F2EFE9;margin-bottom:12px;
+}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.testi-card{
+background:#1E1C2A;
+border:1px solid rgba(255,255,255,0.07);
+border-radius:20px;padding:32px;
+position:relative;
+}
+.testi-quote{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:18px;font-style:italic;
+color:#F2EFE9;line-height:1.6;margin-bottom:24px;
+}
+.testi-quote::before{
+content:’\201C’;color:#8B5CF6;font-size:32px;line-height:0;
+vertical-align:-12px;margin-right:4px;
+}
+.testi-who{display:flex;align-items:center;gap:12px;}
+.testi-avatar{
+width:40px;height:40px;border-radius:50%;
+background:linear-gradient(135deg,#8B5CF6,#6D28D9);
+display:flex;align-items:center;justify-content:center;
+font-size:16px;flex-shrink:0;
+}
+.testi-name{font-size:14px;font-weight:700;color:#F2EFE9;}
+.testi-desc{font-size:12px;color:#666;margin-top:2px;}
+
+/* ── PROMISE STRIP ── */
+.promise{
+background:linear-gradient(135deg,#1A0A3A,#0A0818);
+border-top:1px solid rgba(139,92,246,0.3);
+border-bottom:1px solid rgba(139,92,246,0.3);
+padding:80px 24px;text-align:center;
+position:relative;overflow:hidden;
+}
+.promise-glow{
+position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+width:800px;height:400px;
+background:radial-gradient(ellipse,rgba(139,92,246,0.2) 0%,transparent 70%);
+pointer-events:none;
+}
+.promise-inner{max-width:700px;margin:0 auto;position:relative;}
+.promise p{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(22px,3.5vw,36px);
+line-height:1.5;color:#F2EFE9;margin-bottom:16px;
+}
+.promise p em{color:#C9920A;font-style:italic;}
+.promise-line{
+width:48px;height:2px;background:#8B5CF6;
+margin:32px auto;border-radius:2px;
+}
+
+/* ── PRICING ── */
+.pricing{padding:100px 24px;}
+.pricing-inner{max-width:900px;margin:0 auto;text-align:center;}
+.pricing-hdr h2{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:clamp(28px,4vw,48px);font-weight:900;
+letter-spacing:-1px;color:#F2EFE9;margin-bottom:12px;
+}
+.pricing-hdr p{font-size:16px;color:#888;margin-bottom:56px;}
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;margin-bottom:48px;
+align-items:start;
+}
+.price-card{
+background:#1E1C2A;
+border:1px solid rgba(255,255,255,0.09);
+border-radius:24px;padding:36px 32px;
+position:relative;overflow:hidden;
+text-align:left;
+}
+.price-card.featured{
+border-color:rgba(139,92,246,0.5);
+background:linear-gradient(160deg,rgba(139,92,246,0.08) 0%,#1E1C2A 60%);
+}
+.price-card.featured::before{
+content:‘BEST VALUE’;
+position:absolute;top:16px;right:16px;
+background:linear-gradient(135deg,#C9920A,#A97208);
+color:#fff;font-size:9px;font-weight:800;
+letter-spacing:2px;padding:4px 10px;border-radius:20px;
+}
+.price-period{
+font-family:‘DM Mono’,monospace;font-size:11px;
+letter-spacing:2px;color:#8B5CF6;text-transform:uppercase;
+margin-bottom:16px;
+}
+.price-amount{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:56px;font-weight:900;color:#F2EFE9;
+letter-spacing:-2px;line-height:1;margin-bottom:4px;
+}
+.price-amount sup{font-size:24px;vertical-align:top;margin-top:10px;}
+.price-per{font-size:13px;color:#666;margin-bottom:28px;}
+.price-includes{margin-bottom:28px;}
+.price-includes h4{
+font-size:11px;font-weight:700;letter-spacing:2px;
+color:#555;text-transform:uppercase;margin-bottom:14px;
+}
+.price-item{
+display:flex;align-items:flex-start;gap:10px;
+font-size:14px;color:#ccc;margin-bottom:10px;line-height:1.4;
+}
+.price-item-check{
+color:#8B5CF6;font-size:16px;flex-shrink:0;margin-top:-1px;
+}
+.price-btn{
+display:block;width:100%;
+background:linear-gradient(135deg,#8B5CF6,#6D28D9);
+color:#fff;font-size:15px;font-weight:700;
+padding:16px;border-radius:50px;
+text-decoration:none;text-align:center;
+box-shadow:0 6px 24px rgba(139,92,246,0.4);
+transition:transform 0.15s,box-shadow 0.15s;
+}
+.price-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(139,92,246,0.55);}
+.price-btn.gold{
+background:linear-gradient(135deg,#C9920A,#A97208);
+box-shadow:0 6px 24px rgba(201,146,10,0.35);
+}
+.price-btn.gold:hover{box-shadow:0 10px 32px rgba(201,146,10,0.5);}
+.price-note{font-size:12px;color:#555;text-align:center;margin-top:12px;}
+.pricing-guarantee{
+font-size:14px;color:#666;line-height:1.7;
+max-width:520px;margin:0 auto;
+}
+.pricing-guarantee strong{color:#aaa;}
+
+/* ── CLOSING ── */
+.closing{
+padding:80px 24px 40px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.06);
+}
+.closing-inner{max-width:560px;margin:0 auto;}
+.closing-logo{
+font-family:‘Playfair Display’,Georgia,‘Times New Roman’,serif;
+font-size:32px;font-weight:900;color:#F2EFE9;
+letter-spacing:-1px;margin-bottom:8px;
+}
+.closing-logo span{color:#8B5CF6;}
+.closing-tagline{font-size:14px;color:#555;margin-bottom:32px;}
+.closing-sign{
+font-family:‘Playfair Display’,serif;
+font-size:20px;font-style:italic;color:#888;
+margin-top:48px;
+}
+.closing-sign strong{color:#C9920A;}
+.closing-email{
+font-size:12px;color:#444;margin-top:8px;
+}
+.closing-email a{color:#666;text-decoration:none;}
+.closing-email a:hover{color:#8B5CF6;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+.nav{padding:14px 20px;}
+.hero{padding:100px 20px 60px;}
+.pricing-grid{grid-template-columns:1fr;}
+.inside-grid{grid-template-columns:1fr;}
+.soar-grid{grid-template-columns:1fr;}
+.testi-grid{grid-template-columns:1fr;}
+.screenshots-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(24px)}
+to{opacity:1;transform:translateY(0)}
+}
+.hero-tag,.hero-h1,.hero-sub,.hero-btns,.hero-trust{
+animation:fadeUp 0.7s ease both;
+}
+.hero-tag{animation-delay:0.1s}
+.hero-h1{animation-delay:0.2s}
+.hero-sub{animation-delay:0.3s}
+.hero-btns{animation-delay:0.4s}
+.hero-trust{animation-delay:0.5s}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav class="nav">
+  <div class="nav-logo">Koino<span class="nav-logo-star">✦</span></div>
+  <a href="https://whop.com/checkout/plan_tmrLUD0DW4NID" class="nav-cta">Get Access &rarr;</a>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-tag"><span class="hero-tag-dot"></span> 500+ Conversation Cards</div>
+  <h1 class="hero-h1">The conversations you&rsquo;ve been meaning to have &mdash; <em>finally happen here.</em></h1>
+  <p class="hero-sub">Deep questions for couples, families, singles, and everyone doing the real work of knowing &mdash; and being known.</p>
+  <div class="hero-btns">
+    <a href="https://whop.com/checkout/plan_tmrLUD0DW4NID" class="btn-primary">Get Access &mdash; $9.99&sol;month &rarr;</a>
+    <a href="https://whop.com/checkout/plan_27RW6w3F42JGf" class="btn-secondary">6 Months for $29.99</a>
+  </div>
+  <div class="hero-trust">
+    <span>&#10003; No download needed</span>
+    <span>&#10003; Works on any device</span>
+    <span>&#10003; Cancel anytime</span>
+  </div>
+</section>
+
+<!-- MOCKUP -->
+
+<div class="mockup-section">
+  <div class="mockup-wrap">
+    <!-- Replace src below with your actual mockup image URL -->
+    <div style="width:100%;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#1A0A3A,#0A0818);padding:40px 20px;display:flex;justify-content:center;align-items:center;min-height:300px;border:1px solid rgba(139,92,246,0.2);">
+      <div style="text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#8B5CF6;margin-bottom:8px;">Koino&#10022;</div>
+        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#555;margin-bottom:32px;">APP MOCKUP</div>
+        <!-- THREE SIMULATED PHONES -->
+        <div style="display:flex;gap:16px;justify-content:center;align-items:flex-end;flex-wrap:wrap;">
+          <!-- Phone 1 -->
+          <div style="width:140px;background:#1E1C2A;border-radius:20px;border:1px solid rgba(255,255,255,0.1);overflow:hidden;transform:rotate(-6deg) translateY(10px);box-shadow:0 20px 40px rgba(0,0,0,0.5);">
+            <div style="background:#0F0E18;padding:10px 10px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">
+              <div style="font-family:'Playfair Display',serif;font-size:12px;font-weight:900;color:#F2EFE9;">Koino&#10022;</div>
+            </div>
+            <div style="padding:8px;display:flex;flex-direction:column;gap:5px;">
+              <div style="background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:6px;padding:5px 7px;font-size:7px;color:#C4B5FD;font-style:italic;line-height:1.3;">Before you assume your marriage is healthy &mdash; explore these.</div>
+              <div style="background:#13121A;border-radius:6px;padding:6px 7px;display:flex;gap:5px;align-items:center;"><span style="font-size:12px;">&#128141;</span><div><div style="font-size:7px;font-weight:700;color:#F2EFE9;">Marriage Pulse</div><div style="font-size:6px;color:#888;">Ask before you assume</div></div></div>
+              <div style="background:#13121A;border-radius:6px;padding:6px 7px;display:flex;gap:5px;align-items:center;"><span style="font-size:12px;">&#128260;</span><div><div style="font-size:7px;font-weight:700;color:#F2EFE9;">Renewal Questions</div><div style="font-size:6px;color:#888;">Love can be new again</div></div></div>
+              <div style="background:#13121A;border-radius:6px;padding:6px 7px;display:flex;gap:5px;align-items:center;"><span style="font-size:12px;">&#129309;</span><div><div style="font-size:7px;font-weight:700;color:#F2EFE9;">Best Friends</div><div style="font-size:6px;color:#888;">The foundation</div></div></div>
+            </div>
+          </div>
+          <!-- Phone 2 (center hero) -->
+          <div style="width:160px;background:#1E1C2A;border-radius:22px;border:1px solid rgba(139,92,246,0.4);overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,0.7),0 0 40px rgba(139,92,246,0.3);position:relative;z-index:2;">
+            <div style="background:#0F0E18;padding:10px 12px 8px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;">
+              <div style="font-size:8px;font-weight:700;color:#F2EFE9;font-family:'Playfair Display',serif;">Marriage Pulse</div>
+              <div style="font-family:'DM Mono',monospace;font-size:7px;color:#888;background:#1E1C2A;padding:2px 6px;border-radius:6px;">1/30</div>
+            </div>
+            <div style="background:linear-gradient(160deg,#8B5CF6EE 0%,#7C3AED88 35%,#0E0B18 75%);padding:16px 14px 14px;min-height:200px;display:flex;flex-direction:column;">
+              <div style="font-family:'DM Mono',monospace;font-size:6px;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:10px;">MARRIAGE PULSE &middot; KOINO</div>
+              <div style="font-size:18px;margin-bottom:8px;">&#128141;</div>
+              <div style="font-family:'Playfair Display',serif;font-size:13px;font-weight:700;line-height:1.4;color:#F2EFE9;flex:1;">When did you last feel genuinely seen by me &mdash; not just heard, but truly seen?</div>
+              <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;align-items:center;">
+                <div style="font-size:8px;color:rgba(255,255,255,0.45);font-style:italic;">Think carefully</div>
+                <div style="font-size:7px;color:rgba(255,255,255,0.3);font-family:'DM Mono',monospace;letter-spacing:1px;">SWIPE &rarr;</div>
+              </div>
+            </div>
+            <div style="background:#0F0E18;padding:10px;display:flex;justify-content:center;gap:12px;align-items:center;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#1E1C2A;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;">&#8617;</div>
+              <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#6D28D9);display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 4px 14px rgba(139,92,246,0.5);">&rarr;</div>
+              <div style="width:28px;height:28px;border-radius:50%;background:#1E1C2A;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:12px;">&#9825;</div>
+            </div>
+          </div>
+          <!-- Phone 3 -->
+          <div style="width:140px;background:#1E1C2A;border-radius:20px;border:1px solid rgba(255,255,255,0.1);overflow:hidden;transform:rotate(6deg) translateY(10px);box-shadow:0 20px 40px rgba(0,0,0,0.5);">
+            <div style="background:#0F0E18;padding:10px 10px 6px;border-bottom:1px solid rgba(255,255,255,0.06);">
+              <div style="font-family:'Playfair Display',serif;font-size:12px;font-weight:900;color:#F2EFE9;">Koino&#10022;</div>
+            </div>
+            <div style="padding:8px;display:flex;flex-direction:column;gap:5px;">
+              <div style="background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:6px;padding:5px 7px;font-size:7px;color:#C4B5FD;font-style:italic;line-height:1.3;">Before you assume they&rsquo;re too young to understand &mdash; ask tonight.</div>
+              <div style="background:#13121A;border-radius:6px;padding:6px 7px;display:flex;gap:5px;align-items:center;"><span style="font-size:12px;">&#10084;&#65039;</span><div><div style="font-size:7px;font-weight:700;color:#F2EFE9;">Your Child&rsquo;s Heart</div><div style="font-size:6px;color:#888;">They feel more than they say</div></div></div>
+              <div style="background:#13121A;border-radius:6px;padding:6px 7px;display:flex;gap:5px;align-items:center;"><span style="font-size:12px;">&#127885;</span><div><div style="font-size:7px;font-weight:700;color:#F2EFE9;">Behind The Smile</div><div style="font-size:6px;color:#888;">Go deeper tonight</div></div></div>
+              <div style="background:#13121A;border-radius:6px;padding:6px 7px;display:flex;gap:5px;align-items:center;"><span style="font-size:12px;">&#127807;</span><div><div style="font-size:7px;font-weight:700;color:#F2EFE9;">Love, Not Pressure</div><div style="font-size:6px;color:#888;">Parent with presence</div></div></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:28px;font-family:'DM Mono',monospace;font-size:10px;color:#555;letter-spacing:2px;">koinocards.whop.com</div>
+      </div>
+    </div>
+    <div class="mockup-glow"></div>
+  </div>
+</div>
+
+<!-- VOID — THE PROBLEM -->
+
+<section class="void">
+  <div class="section-label">&#9632; The moment before Koino</div>
+  <h2 class="void-h2">You&rsquo;re with the person you love most &mdash; and talking about everything except what matters.</h2>
+  <p class="void-body">It&rsquo;s not that you don&rsquo;t care. You do. It&rsquo;s that nobody hands you the question that opens everything. So you talk about schedules. Logistics. <strong>The surface of life.</strong> And somewhere underneath that, the real conversation waits.</p>
+  <p class="void-body">You&rsquo;ve sat across from your spouse after the kids are asleep, phones in hand, and felt the distance without knowing what to do about it. You&rsquo;ve held something you wanted to say to your child but couldn&rsquo;t find the words. You&rsquo;ve been single, doing the work, and needed someone to ask you the question you&rsquo;ve been carrying alone.</p>
+  <p class="void-body">You&rsquo;ve tried. Date nights that became dinner. Conversations that stayed comfortable. Moments that could have been deep &mdash; <strong>but nobody went first.</strong></p>
+  <blockquote class="void-pullquote">&ldquo;We talk every day. But I can&rsquo;t remember the last time we really talked.&rdquo;</blockquote>
+  <p class="void-close">That is exactly what Koino is for.</p>
+</section>
+
+<!-- DARK BREAK — REFRAME -->
+
+<div class="dark-break">
+  <div class="dark-break-glow"></div>
+  <div class="dark-break-inner">
+    <p>The conversations you avoid during courtship become <em>the arguments you carry into marriage.</em></p>
+    <p>The questions you never ask your child become the silence they carry <em>into adulthood.</em></p>
+    <p>The version of yourself you never explore becomes the partner <em>you bring to every relationship.</em></p>
+    <div class="dark-break-close">One question changes everything. Koino gives you hundreds of them.</div>
+  </div>
+</div>
+
+<!-- PERCH — THE SOLUTION -->
+
+<section class="perch">
+  <div class="section-label">&#9632; The answer that was already waiting</div>
+  <h2 class="perch-h2">Imagine ending tonight feeling closer than you started.</h2>
+  <p class="perch-body">Not because something dramatic happened. Because someone asked the right question &mdash; and you both answered honestly. That&rsquo;s the whole practice. That&rsquo;s the entire method. And it works every single time.</p>
+  <p class="perch-body"><strong>KoinoCards</strong> is a conversation card app with 500+ questions built for real relationships &mdash; marriages, courtships, families, long-distance pairs, people in healing, singles, and those who want to go deeper in faith. You open it on any device. You pick the category that fits your moment. You swipe through cards together &mdash; or alone &mdash; and answer honestly.</p>
+  <p class="perch-body">No download. No setup. No instructions beyond: <strong>go first.</strong></p>
+  <div class="perch-pullquote">Every question in Koino was written with one goal &mdash; to leave you feeling more connected, more seen, and more hopeful than before you started.</div>
+</section>
+
+<!-- APP SCREENSHOTS — HOW IT LOOKS -->
+
+<section class="screenshots">
+  <div class="screenshots-inner">
+    <div class="screenshots-hdr">
+      <div class="section-label">&#9632; Inside the app</div>
+      <h2>See exactly what you&rsquo;re getting</h2>
+      <p>Clean. Beautiful. Built for real conversations &mdash; not gamified gimmicks.</p>
+    </div>
+    <div class="screenshots-grid">
+
+```
+  <!-- Screen 1: Home -->
+  <div class="screen-card">
+    <div class="screen-card-img" style="background:linear-gradient(160deg,#1A0A3A 0%,#13121A 100%);">
+      <div class="sim-header">
+        <div class="sim-logo">Koino&#10022;</div>
+        <div class="sim-badge">&#128142; PRO</div>
+      </div>
+      <div class="sim-hook" style="top:58px;">Before you assume your marriage is healthy &mdash; open one of these tonight.</div>
+      <div class="sim-editions" style="top:128px;">
+        <div class="sim-ed"><span class="sim-ed-emoji">&#128141;</span><div class="sim-ed-text"><div class="sim-ed-name">Marriage Pulse</div><div class="sim-ed-desc">Ask before you assume</div></div></div>
+        <div class="sim-ed"><span class="sim-ed-emoji">&#128260;</span><div class="sim-ed-text"><div class="sim-ed-name">Renewal Questions</div><div class="sim-ed-desc">Love can be new again</div></div></div>
+        <div class="sim-ed"><span class="sim-ed-emoji">&#129309;</span><div class="sim-ed-text"><div class="sim-ed-name">Best Friends</div><div class="sim-ed-desc">The foundation</div></div></div>
+        <div class="sim-ed"><span class="sim-ed-emoji">&#128302;</span><div class="sim-ed-text"><div class="sim-ed-name">Our Vision</div><div class="sim-ed-desc">Dream together</div></div></div>
+      </div>
+    </div>
+    <div class="screen-card-label">
+      <h4>10 Categories</h4>
+      <p>Swipe the tabs &mdash; every audience has its own section</p>
+    </div>
+  </div>
+
+  <!-- Screen 2: Card -->
+  <div class="screen-card">
+    <div class="screen-card-img" style="background:linear-gradient(160deg,#8B5CF6EE 0%,#7C3AED88 35%,#0E0B18 100%);">
+      <div class="sim-qcard" style="background:transparent;">
+        <div class="sim-qcard-label">MARRIAGE PULSE &middot; KOINO</div>
+        <div class="sim-qcard-emoji">&#128141;</div>
+        <div class="sim-qcard-q">When did you last feel genuinely seen by me &mdash; not just heard, but truly seen?</div>
+        <div class="sim-qcard-hint">Think carefully</div>
+      </div>
+      <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center;">
+        <div style="width:30px;height:30px;border-radius:50%;background:rgba(30,28,42,0.9);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:12px;color:#aaa;">&#8617;</div>
+        <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#6D28D9);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;box-shadow:0 4px 14px rgba(139,92,246,0.5);">&rarr;</div>
+        <div style="width:30px;height:30px;border-radius:50%;background:rgba(30,28,42,0.9);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:12px;color:#aaa;">&#9825;</div>
+      </div>
+    </div>
+    <div class="screen-card-label">
+      <h4>Swipeable Cards</h4>
+      <p>Swipe right to move forward &mdash; every card one real question</p>
+    </div>
+  </div>
+
+  <!-- Screen 3: Parenting -->
+  <div class="screen-card">
+    <div class="screen-card-img" style="background:linear-gradient(160deg,#1A0A3A 0%,#13121A 100%);">
+      <div class="sim-header">
+        <div class="sim-logo">Koino&#10022;</div>
+        <div class="sim-badge">&#128142; PRO</div>
+      </div>
+      <div class="sim-hook" style="top:58px;">Before you assume they&rsquo;re too young to understand &mdash; ask them tonight.</div>
+      <div class="sim-editions" style="top:128px;">
+        <div class="sim-ed"><span class="sim-ed-emoji">&#10084;&#65039;</span><div class="sim-ed-text"><div class="sim-ed-name">Your Child&rsquo;s Heart</div><div class="sim-ed-desc">They feel more than they say</div></div></div>
+        <div class="sim-ed"><span class="sim-ed-emoji">&#127885;</span><div class="sim-ed-text"><div class="sim-ed-name">Behind The Smile</div><div class="sim-ed-desc">Go deeper tonight</div></div></div>
+        <div class="sim-ed"><span class="sim-ed-emoji">&#128172;</span><div class="sim-ed-text"><div class="sim-ed-name">How Your Words Land</div><div class="sim-ed-desc">Words build or break</div></div></div>
+        <div class="sim-ed"><span class="sim-ed-emoji">&#127807;</span><div class="sim-ed-text"><div class="sim-ed-name">Love, Not Pressure</div><div class="sim-ed-desc">Parent with presence</div></div></div>
+      </div>
+    </div>
+    <div class="screen-card-label">
+      <h4>Parenting Edition</h4>
+      <p>Questions your child needs you to be brave enough to ask</p>
+    </div>
+  </div>
+
+  <!-- Screen 4: Healing -->
+  <div class="screen-card">
+    <div class="screen-card-img" style="background:linear-gradient(160deg,#0A1A0A 0%,#13121A 100%);">
+      <div class="sim-header">
+        <div class="sim-logo">Koino&#10022;</div>
+        <div class="sim-badge">&#128142; PRO</div>
+      </div>
+      <div class="sim-hook" style="top:58px;border-color:rgba(52,211,153,0.3);background:rgba(52,211,153,0.08);color:#6EE7B7;">Before you assume you&rsquo;re fully healed &mdash; sit with these questions.</div>
+      <div class="sim-editions" style="top:128px;">
+        <div class="sim-ed"><span class="sim-ed-emoji">&#127807;</span><div class="sim-ed-text"><div class="sim-ed-name">Gentle Ground</div><div class="sim-ed-desc">Safe, slow questions</div></div></div>
+        <div class="sim-ed"><span class="sim-ed-emoji">&#129518;</span><div class="sim-ed-text"><div class="sim-ed-name">Healing in Relationship</div><div class="sim-ed-desc">Side by side</div></div></div>
+        <div class="sim-ed"><span class="sim-ed-emoji">&#128300;</span><div class="sim-ed-text"><div class="sim-ed-name">How You Love</div><div class="sim-ed-desc">Understand your patterns</div></div></div>
+        <div class="sim-ed"><span class="sim-ed-emoji">&#128168;</span><div class="sim-ed-text"><div class="sim-ed-name">Peace &amp; Rest</div><div class="sim-ed-desc">Breathe first</div></div></div>
+      </div>
+    </div>
+    <div class="screen-card-label">
+      <h4>Healing Edition</h4>
+      <p>For the people doing the quiet, necessary work of becoming whole</p>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+</section>
+
+<!-- SOAR — TRANSFORMATION -->
+
+<section class="soar">
+  <div class="soar-hdr">
+    <div class="section-label">&#9632; After Koino</div>
+    <h2>What actually changes</h2>
+    <p>Not in theory. In the room. That same night.</p>
+  </div>
+  <div class="soar-grid">
+    <div class="soar-card">
+      <div class="soar-num">01</div>
+      <h3>You feel genuinely close again</h3>
+      <p>Not just present in the same room &mdash; but actually together. The kind of closeness that comes from being asked something real and answering honestly. You remember why you chose each other.</p>
+    </div>
+    <div class="soar-card">
+      <div class="soar-num">02</div>
+      <h3>Your child opens up in ways they never have</h3>
+      <p>Because you asked differently. Not &ldquo;how was school&rdquo; but the question they&rsquo;ve been waiting for someone to finally be brave enough to ask. They talk. You listen. The relationship shifts.</p>
+    </div>
+    <div class="soar-card">
+      <div class="soar-num">03</div>
+      <h3>You understand yourself more clearly</h3>
+      <p>The singles and healing decks do something quiet and powerful &mdash; they put words to things you&rsquo;ve been carrying without language for. You walk away knowing yourself a little better than before.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+
+<section class="inside">
+  <div class="inside-inner">
+    <div class="inside-hdr">
+      <div class="section-label">&#9632; What&rsquo;s inside</div>
+      <h2>10 categories. 500+ questions. Every relationship.</h2>
+      <p>There is always a deck for exactly where you are.</p>
+    </div>
+    <div class="inside-grid">
+
+```
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#1A0A3A;">&#128141;</div>
+    <div class="inside-text">
+      <h4>&#128141; Marriage</h4>
+      <p>5 editions &mdash; Marriage Pulse, Renewal, Best Friends, Our Vision, Repair &amp; Reconnect. For couples who want more than routine.</p>
+    </div>
+  </div>
+
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#1A0A10;">&#127801;</div>
+    <div class="inside-text">
+      <h4>&#127801; Courtship</h4>
+      <p>4 editions &mdash; Before You Say Yes, Character Check, Future Home, Growing Together. Ask what matters before you commit.</p>
+    </div>
+  </div>
+
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#1A0A14;">&#128279;</div>
+    <div class="inside-text">
+      <h4>&#128279; Couples</h4>
+      <p>4 editions &mdash; Deep Connection, Love Language, Our Story, Future Together. For getting closer than small talk ever allowed.</p>
+    </div>
+  </div>
+
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#0A0C1A;">&#128241;</div>
+    <div class="inside-text">
+      <h4>&#128241; Long Distance</h4>
+      <p>3 editions &mdash; Tonight&rsquo;s Call, Trust &amp; Closeness, When We&rsquo;re Together. For making every conversation count.</p>
+    </div>
+  </div>
+
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#1A0A0E;">&#128106;</div>
+    <div class="inside-text">
+      <h4>&#128106; Parenting</h4>
+      <p>5 editions &mdash; Your Child&rsquo;s Heart, Behind The Smile, How Your Words Land, Love Not Pressure, Faith at Home.</p>
+    </div>
+  </div>
+
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#120A1A;">&#127769;</div>
+    <div class="inside-text">
+      <h4>&#127769; Singles</h4>
+      <p>4 editions &mdash; Know Yourself First, Wholeness Walk, Life &amp; Purpose, Ready for Love. For becoming whole before you give yourself away.</p>
+    </div>
+  </div>
+
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#080C0A;">&#127807;</div>
+    <div class="inside-text">
+      <h4>&#127807; Healing</h4>
+      <p>4 editions &mdash; Gentle Ground, Healing in Relationship, Understanding How You Love, Peace &amp; Rest. For the deep work.</p>
+    </div>
+  </div>
+
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#08060E;">&#10024;</div>
+    <div class="inside-text">
+      <h4>&#10024; Faith</h4>
+      <p>4 editions &mdash; Soul Questions, Faith as a Couple, Growing in Faith, Honest with God. For going deeper than Sunday.</p>
+    </div>
+  </div>
+
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#0A0818;">&#128357;</div>
+    <div class="inside-text">
+      <h4>&#128357; Late Nights</h4>
+      <p>2 editions &mdash; Say The Real Thing, Just Us. For when the walls are down and the real things surface.</p>
+    </div>
+  </div>
+
+  <div class="inside-card">
+    <div class="inside-emoji" style="background:#181005;">&#127919;</div>
+    <div class="inside-text">
+      <h4>&#127919; Fun</h4>
+      <p>6 editions &mdash; Would You Rather, Most Likely To, Hot Takes, Never Have I Ever, This or That, Confessions. Because laughter opens doors too.</p>
+    </div>
+  </div>
+
+</div>
+<div class="inside-count">
+  <strong>500+</strong> questions &middot; 10 categories &middot; new editions added regularly
+</div>
+```
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="testi">
+  <div class="testi-inner">
+    <div class="testi-hdr">
+      <div class="section-label">&#9632; What people are saying</div>
+      <h2>Real conversations. Real results.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">We talked for three hours. We haven&rsquo;t done that in years. The Marriage Pulse deck asked what I didn&rsquo;t know how to ask myself.</div>
+        <div class="testi-who">
+          <div class="testi-avatar">&#128141;</div>
+          <div>
+            <div class="testi-name">Adaeze &amp; Chukwuemeka</div>
+            <div class="testi-desc">Married 8 years &mdash; Marriage deck</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">I asked my daughter one question from the Parenting section. She cried. I cried. We needed that conversation more than either of us knew.</div>
+        <div class="testi-who">
+          <div class="testi-avatar">&#10084;&#65039;</div>
+          <div>
+            <div class="testi-name">Blessing O.</div>
+            <div class="testi-desc">Mother of three &mdash; Parenting deck</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">I&rsquo;ve been single and healing. The &lsquo;Wholeness Walk&rsquo; deck felt like therapy &mdash; but at midnight when I actually needed it.</div>
+        <div class="testi-who">
+          <div class="testi-avatar">&#127769;</div>
+          <div>
+            <div class="testi-name">Temi A.</div>
+            <div class="testi-desc">Single, 29 &mdash; Healing deck</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE STRIP -->
+
+<div class="promise">
+  <div class="promise-glow"></div>
+  <div class="promise-inner">
+    <p>The people you love are right there.</p>
+    <p>The only thing missing is <em>the question that opens everything.</em></p>
+    <div class="promise-line"></div>
+    <p style="font-size:clamp(18px,2.5vw,26px);color:#aaa;">Koino gives you that question &mdash; every single night.</p>
+  </div>
+</div>
+
+<!-- PRICING -->
+
+<section class="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-hdr">
+      <div class="section-label">&#9632; Get access</div>
+      <h2>Choose your plan</h2>
+      <p>Everything included. Cancel anytime. Less than one coffee.</p>
+    </div>
+    <div class="pricing-grid">
+
+```
+  <!-- Monthly -->
+  <div class="price-card">
+    <div class="price-period">Monthly</div>
+    <div class="price-amount"><sup>$</sup>9.99</div>
+    <div class="price-per">per month &middot; billed monthly</div>
+    <div class="price-includes">
+      <h4>Everything included</h4>
+      <div class="price-item"><span class="price-item-check">&#10022;</span>Full access to all 10 categories</div>
+      <div class="price-item"><span class="price-item-check">&#10022;</span>500+ questions &amp; growing</div>
+      <div class="price-item"><span class="price-item-check">&#10022;</span>New editions added regularly</div>
+      <div class="price-item"><span class="price-item-check">&#10022;</span>Works on any device &mdash; no download</div>
+      <div class="price-item"><span class="price-item-check">&#10022;</span>Private community access</div>
+    </div>
+    <a href="https://whop.com/checkout/plan_tmrLUD0DW4NID" class="price-btn">Get Access &mdash; $9.99&sol;month &rarr;</a>
+    <div class="price-note">Cancel anytime from your account</div>
+  </div>
+
+  <!-- 6 Month -->
+  <div class="price-card featured">
+    <div class="price-period">6 Months</div>
+    <div class="price-amount"><sup>$</sup>29.99</div>
+    <div class="price-per">one payment &middot; saves you $30</div>
+    <div class="price-includes">
+      <h4>Everything in monthly, plus</h4>
+      <div class="price-item"><span class="price-item-check" style="color:#C9920A;">&#10022;</span>Full access to all 10 categories</div>
+      <div class="price-item"><span class="price-item-check" style="color:#C9920A;">&#10022;</span>500+ questions &amp; growing</div>
+      <div class="price-item"><span class="price-item-check" style="color:#C9920A;">&#10022;</span>New editions added regularly</div>
+      <div class="price-item"><span class="price-item-check" style="color:#C9920A;">&#10022;</span>Works on any device &mdash; no download</div>
+      <div class="price-item"><span class="price-item-check" style="color:#C9920A;">&#10022;</span>Private community access</div>
+      <div class="price-item"><span class="price-item-check" style="color:#C9920A;">&#10022;</span><strong>6 months for the price of 3</strong></div>
+    </div>
+    <a href="https://whop.com/checkout/plan_27RW6w3F42JGf" class="price-btn gold">Get 6 Months &mdash; $29.99 &rarr;</a>
+    <div class="price-note">Best value &middot; Save $30</div>
+  </div>
+
+</div>
+<div class="pricing-guarantee">
+  <strong>Secure checkout via Whop.</strong> Digital product &mdash; no physical items shipped. Access begins immediately after payment. Questions? Email <a href="mailto:tomiwabankole172@gmail.com">tomiwabankole172@gmail.com</a>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- CLOSING -->
+
+<footer class="closing">
+  <div class="closing-inner">
+    <div class="closing-logo">Koino<span>&#10022;</span>Cards</div>
+    <div class="closing-tagline">Deep conversations for real relationships.</div>
+    <a href="https://whop.com/checkout/plan_tmrLUD0DW4NID" class="btn-primary" style="display:inline-flex;font-size:15px;padding:14px 32px;">Start tonight &rarr;</a>
+    <div class="closing-sign">Thank you for letting this be part of your relationships.<br><strong>&mdash; Koinocards</strong></div>
+    <div class="closing-email">
+      Questions &rarr; <a href="mailto:tomiwabankole172@gmail.com">tomiwabankole172@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
